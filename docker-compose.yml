@@ -1,0 +1,13 @@
+apache:
+  build: .
+  ports:
+    - "8080:80"
+    - "3307:3306"    
+  links:
+    - mongodb
+  volumes:
+    - "src/:/var/www/html:ro"       
+mongodb:  
+  image: mongo:2.6
+  ports:
+    - "27017:27017"
